@@ -3,18 +3,18 @@
 import { Flex, Image, Typography } from "antd";
 import React, { useEffect } from "react";
 import "./style.css"; // 引入樣式檔案
-const { Title, Text } = Typography;
+const { Text } = Typography;
 
 interface CardProps {
   imageUrl: string;
-  title: string;
-  category: string;
+  name: string;
+  contentType: string;
 }
 
 const RecommendationCard: React.FC<CardProps> = ({
   imageUrl,
-  title,
-  category,
+  name,
+  contentType,
 }) => {
   useEffect(() => {
     console.log(Typography);
@@ -22,7 +22,7 @@ const RecommendationCard: React.FC<CardProps> = ({
   }, []);
 
   return (
-    <Flex vertical style={{ maxWidth: "120px" }}>
+    <Flex vertical style={{ maxWidth: "120px" }} gap={"4px"}>
       <Image
         src={imageUrl}
         alt="Recommendation Image"
@@ -35,14 +35,14 @@ const RecommendationCard: React.FC<CardProps> = ({
         className="title-truncate"
         style={{ maxWidth: "100%", fontSize: "1.1rem", fontWeight: "bold" }}
       >
-        {title}
+        {name}
       </Text>
       <Text
         className="category-truncate"
         type="secondary"
         style={{ maxWidth: "100%", fontSize: "0.8rem" }}
       >
-        {category}
+        {contentType}
       </Text>
     </Flex>
   );
